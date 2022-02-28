@@ -1,0 +1,38 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px black solid;
+    margin-bottom: 0;
+}
+
+#top {
+    color: black;
+    word-spacing: .5em;
+}
+
+#menu{
+    background-color: rgb(135, 217, 250);
+}
+
+#tutorial{
+    background-color: #bfa;
+    
+}
+
+#exercise{
+    background-color: rgb(248, 255, 155);
+}
+
+#calculator{
+    background-color: rgb(255, 170, 244);
+}
+
+/* footer {
+    font-size: .8em;
+    background-color: #A3297A;
+    color: white;
+    padding: .5em;
+    clear: both;
+} */
