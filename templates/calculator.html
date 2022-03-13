@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block style %} 
+<style>
+    main{
+        padding: 30px 10%;
+    }
+
+    #calculator{
+            font-style: italic;
+            font-weight: bold;
+    }
+
+    h2{
+        text-align: center;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+    }
+
+    #leftbox{
+        float:left; 
+        /* background:rgb(255, 215, 215); */
+        width:40%;
+        height:350px;
+    }
+
+    #middlebox{
+        float:left; 
+        /* background:rgb(207, 255, 207); */
+        width:20%;
+        height:350px;
+    }
+
+    #rightbox{
+        float:right;
+        width:40%;
+        height:350px;
+    }
+
+    input{
+        width: 120px;
+        height: 30px;
+    }
+
+    table{
+        /* width: 100px; */
+        margin: 0 auto;
+    }
+
+    th br{
+        display: none;
+    }
+
+    .operations{
+        width: 120px;
+        margin: 60% auto;
+    }
+
+    .operations button{
+        width: 120px;
+        margin: 3px 0px;
+        font-size: 16px;
+    }
+
+    .prop{
+        width: 260px;
+        margin: 10px auto;
+    }
+
+    .prop button{
+        width: 260px;
+        margin: 1px 0px;
+        font-size: 16px;
+    }
+
+    #result{
+        background-color: rgb(233, 232, 232);
+        height: 150px;
+
+    }
+    
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div style="height: 350px;">
+    <form action="#" method="post" id="form">
+    <div id="leftbox">
+        <h2>Matrix A:</h2>
+        <!-- <form action="#" method="get" id="form1"> -->
+        <div class="tcontainer">
+            <table>
+                <tr>
+                  <th>
+                        <input type="number" id="A00" name="A00" ><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="A01" name="A01"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="A02" name="A02"><br><br>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                        <input type="number" id="A10" name="A10"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="A11" name="A11"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="A12" name="A12"><br><br>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                        <input type="number" id="A20" name="A20"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="A21" name="A21"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="A22" name="A22"><br><br>
+                  </th>
+                </tr>
+              </table>
+        </div>
+        <!-- </form> -->
+        <div class="prop">
+            <!-- <form action="#"> -->
+                <button type="submit" form="form" name="op" value="Adet"> Find the determinant</button>
+                <button type="submit" form="form" name="op" value="Ainv"> Find the inverse</button>
+                <button type="submit" form="form" name="op" value="Aeiva"> Find eigenvalue(s)</button>
+                <button type="submit" form="form" name="op" value="Aeive"> Find eigenvector(s)</button>
+            <!-- </form> -->
+        </div>
+    </div>
+    <div id="middlebox">
+        <div class="operations">
+            <!-- <form action="#"> -->
+                <button type="submit" form="form" name="op" value="add"> A &plus; B</button>
+                <button type="submit" form="form" name="op" value="sub"> A &minus; B</button>
+                <button type="submit" form="form" name="op" value="mul"> A &times; B</button>
+            <!-- </form> -->
+        </div>
+        
+    </div>
+    <div id="rightbox">
+        <h2>Matrix B:</h2>
+        <!-- <form action="" method="get" id="form2" class="form"> -->
+        <div class="tcontainer">
+            <table>
+                <tr>
+                  <th>
+                        <input type="number" id="B00" name="B00" ><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="B01" name="B01"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="B02" name="B02"><br><br>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                        <input type="number" id="B10" name="B10"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="B11" name="B11"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="B12" name="B12"><br><br>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                        <input type="number" id="B20" name="B20"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="B21" name="B21"><br><br>
+                  </th>
+                  <th>
+                        <input type="number" id="B22" name="B22"><br><br>
+                  </th>
+                </tr>
+              </table>
+        </div>
+        <!-- </form> -->
+        <div class="prop">
+            <!-- <form action="#"> -->
+                <button type="submit" form="form" name="op" value="Bdet"> Find the determinant</button>
+                <button type="submit" form="form" name="op" value="Binv"> Find the inverse</button>
+                <button type="submit" form="form" name="op" value="Beiva"> Find eigenvalue(s)</button>
+                <button type="submit" form="form" name="op" value="Beive"> Find eigenvector(s)</button>
+            <!-- </form> -->
+        </div>
+    </div>
+    </form>
+    </div>
+    <div id="bottombox">
+        <h2 style="text-align: left;">Result</h2>
+        <div id="result">
+            <table>
+                
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+</main>
+{% endblock %}

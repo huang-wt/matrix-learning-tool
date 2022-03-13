@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Learning Tool - Exercise</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    {% block style %} {% endblock %}
+</head>
+<body>
+    <header id="top">
+        <h1>Matrix Learning Tool</h1>
+    </header>
+    <ul class="nav">
+        <li>
+            <a id="menu" href="{{url_for('home')}}">MENU</a>
+        </li>
+        <li>
+            <a id="tutorial" href="{{url_for('tutorial')}}">TUTORIAL</a>
+        </li>
+        <li>
+            <a id="exercise" href="{{url_for('exercise')}}">EXERCISE</a>
+        </li>
+        <li>
+            <a id="calculator" href="{{url_for('calculator')}}">CALCULATOR</a>
+        </li>
+    </ul>
+
+    {% block content %} {% endblock %}
+    
+</body>
+</html>
