@@ -1,54 +1,61 @@
 import numpy as np
 
-print("A matrix must be a squre form")
+MATRIXSIZE = 3
 
-row_number = input("Enter your number of the row and column")
-A = int(row_number)
+class Matrix:
 
-arrA = np.empty(A * A, dtype=int)
+    def __init__(self, M, op) -> None:
+        self.op = op
+        self.arrM = np.empty(MATRIXSIZE * MATRIXSIZE, dtype=int)
+        
+        for i in range(MATRIXSIZE * MATRIXSIZE):
+            self.arrM[i] = M[i]
+        
+        self.arrM = self.arrM.reshape(MATRIXSIZE, MATRIXSIZE)
 
-for i in range(A * A):
-    arrA[i] = input("Enter your elemet from a00 to ann")
+    def get_bi_result(self, N):
+        if self.op == "add":
+            return self + N
+        elif self.op == "sub":
+            return self - N
+        elif self.op == "mult":
+            return self * N
+    
+    def get_result(self):
+        if self.op[1:] == "determinant":
+            return self.det()
+        elif self.op[1:] == "inverse":
+            return self.inv()
+        elif self.op[1:] == "eigenvalue(s)":
+            return self.eigval()
+        elif self.op[1:] == "eigenvector(s)":
+            return self.eigvect()
 
-flag = True
-while flag:
-    flag1 = input("if you want arithmetic operation with another matrix, enter yes. Otherwise, Just press enter")
+    def __add__(self, N):
+        return (self.arrM + N.arrM).tolist()
 
-    if flag1 == 'yes':
-        arrB = np.empty(A * A, dtype=int)
+    def __sub__(self, N):
+        return (self.arrM - N.arrM).tolist()
 
-        for i in range(A * A):
-            arrB[i] = input("Enter your elemet from a00 to ann")
+    def __mul__(self, N):
+        return self.arrM.dot(N.arrM).tolist()
 
-        arr2 = arrB.reshape(A, A)
-        flag = False
-    elif flag1 == '':
-        flag = False
-    else:
-        print("you entered wrong characters. please enter yes or nothing")
+    def det(self):
+        return np.linalg.det(self.arrM)
 
-arr1 = arrA.reshape(A, A)
+    def inv(self):
+        try:
+            return np.linalg.inv(self.arrM).tolist()
+        except:
+            return "This matrix is a singular matrix"
+    
+    def eig(self):
+        return np.linalg.eig(self.arrM)
+    
+    def eigval(self):
+        return self.eig()[0].tolist()
+    
+    def eigvect(self):
+        return self.eig()[1].tolist()
 
-if flag1:
-    print(arr1)
-
-    print(arr1 + arr2)
-    print(arr1 - arr2)
-
-    print(arr1.dot(arr2))
-
-determinant = np.linalg.det(arr1)
-print(determinant)
-print()
-try:
-    inverse = np.linalg.inv(arr1)
-    print(inverse)
-except:
-    print("This matrix is a singular matrix")
-print()
-eigenvalue, eigenvector = np.linalg.eig(arr1)
-
-print(eigenvalue)
-print()
-print(eigenvector)
 
