@@ -79,6 +79,15 @@
         height: 150px;
 
     }
+
+    .binary div{
+        float: left;
+        padding: 20px;
+    }
+
+    .unary div{
+        float: left;
+    }
     
     
 </style>
@@ -131,10 +140,10 @@
         <!-- </form> -->
         <div class="prop">
             <!-- <form action="#"> -->
-                <button type="submit" form="form" name="op" value="Adet"> Find the determinant</button>
-                <button type="submit" form="form" name="op" value="Ainv"> Find the inverse</button>
-                <button type="submit" form="form" name="op" value="Aeiva"> Find eigenvalue(s)</button>
-                <button type="submit" form="form" name="op" value="Aeive"> Find eigenvector(s)</button>
+                <button type="submit" form="form" name="op" value="Adeterminant"> Find the determinant</button>
+                <button type="submit" form="form" name="op" value="Ainverse"> Find the inverse</button>
+                <button type="submit" form="form" name="op" value="Aeigenvalue(s)"> Find eigenvalue(s)</button>
+                <button type="submit" form="form" name="op" value="Aeigenvector(s)"> Find eigenvector(s)</button>
             <!-- </form> -->
         </div>
     </div>
@@ -143,7 +152,7 @@
             <!-- <form action="#"> -->
                 <button type="submit" form="form" name="op" value="add"> A &plus; B</button>
                 <button type="submit" form="form" name="op" value="sub"> A &minus; B</button>
-                <button type="submit" form="form" name="op" value="mul"> A &times; B</button>
+                <button type="submit" form="form" name="op" value="mult"> A &times; B</button>
             <!-- </form> -->
         </div>
         
@@ -191,10 +200,10 @@
         <!-- </form> -->
         <div class="prop">
             <!-- <form action="#"> -->
-                <button type="submit" form="form" name="op" value="Bdet"> Find the determinant</button>
-                <button type="submit" form="form" name="op" value="Binv"> Find the inverse</button>
-                <button type="submit" form="form" name="op" value="Beiva"> Find eigenvalue(s)</button>
-                <button type="submit" form="form" name="op" value="Beive"> Find eigenvector(s)</button>
+                <button type="submit" form="form" name="op" value="Bdeterminant"> Find the determinant</button>
+                <button type="submit" form="form" name="op" value="Binverse"> Find the inverse</button>
+                <button type="submit" form="form" name="op" value="Beigenvalue(s)"> Find eigenvalue(s)</button>
+                <button type="submit" form="form" name="op" value="Beigenvector(s)"> Find eigenvector(s)</button>
             <!-- </form> -->
         </div>
     </div>
@@ -203,24 +212,92 @@
     <div id="bottombox">
         <h2 style="text-align: left;">Result</h2>
         <div id="result">
-            <table>
-                
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </table>
+            {% if is_binary: %}
+            <div class="binary">
+            <div>
+                <table>
+                    {% for i in range(0, 9, 3): %}
+                    <tr>
+                        <th>{{ A[i] }}</th>
+                        <th>{{ A[i + 1] }}</th>
+                        <th>{{ A[i + 2] }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div>
+                <p>
+                    {% if op == "add": %}
+                        &plus;
+                    {% elif op == "sub": %}
+                        &minus;
+                    {% elif op == "mult": %}
+                        &times;
+                    {% endif %}
+                </p> 
+            </div>
+            <div>
+                <table>
+                    {% for i in range(0, 9, 3): %}
+                    <tr>
+                        <th>{{ B[i] }}</th>
+                        <th>{{ B[i + 1] }}</th>
+                        <th>{{ B[i + 2] }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div>
+                <p>&equals;</p>
+            </div>
+            <div>
+                <table>
+                    {% for i in range(3): %}
+                    <tr>
+                        {% for j in range(3): %}
+                        <th>{{ res[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            </div>
+
+            {% elif is_unary: %}
+            <div class="unary">
+            <div>
+                <p> &nbsp; The {{ op }} of &nbsp; </p>
+            </div>
+            <div>
+                {% if is_on_A: %}
+                <table>
+                    {% for i in range(0, 9, 3): %}
+                    <tr>
+                        <th>{{ A[i] }}</th>
+                        <th>{{ A[i + 1] }}</th>
+                        <th>{{ A[i + 2] }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% elif not is_on_A: %}
+                <table>
+                    {% for i in range(0, 9, 3): %}
+                    <tr>
+                        <th>{{ B[i] }}</th>
+                        <th>{{ B[i + 1] }}</th>
+                        <th>{{ B[i + 2] }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+            </div>
+            <div> 
+                <p> &nbsp; is {{ res }}. </p>
+            </div>
+            </div>    
+            {% endif %}
+             
+            
         </div>
     </div>
     </div>
