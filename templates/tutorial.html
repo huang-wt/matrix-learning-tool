@@ -51,25 +51,49 @@
     <div>
         <h1>Introduction</h1>
         <p>
-            A matrix is a rectangular array of numbers (or other mathematical objects), called the entries of the matrix. Matrices are subject to standard operations such as addition and multiplication. Most commonly, a matrix over a field F is a rectangular array of elements of F. A real matrix and a complex matrix are matrices whose entries are respectively real numbers or complex numbers. More general types of entries are discussed below. For instance, this is a real matrix:
+            A matrix is a rectangular array of numbers (or other mathematical objects), called the entries of 
+            the matrix. Matrices are subject to standard operations such as addition and multiplication. Most commonly, 
+            a matrix over a field F is a rectangular array of elements of F. A real matrix and a complex matrix are matrices 
+            whose entries are respectively real numbers or complex numbers. More general types of entries are discussed below. 
+            For instance, this is a real matrix:
         </p>
         <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/93197553f2e35e42d461b20ee549ea2fde617e1e">
-        <p>The numbers, symbols, or expressions in the matrix are called its entries or its elements. The horizontal and vertical lines of entries in a matrix are called rows and columns, respectively.</p>
+        <p>
+            The numbers, symbols, or expressions in the matrix are called its entries or its elements. The horizontal and 
+            vertical lines of entries in a matrix are called rows and columns, respectively.
+        </p>
         <h2>size</h2>
-        <p>The size of a matrix is defined by the number of rows and columns it contains. There is no limit to the numbers of rows and columns a matrix (in the usual sense) can have as long as they are positive integers. A matrix with m rows and n columns is called an m × n matrix, or m-by-n matrix, while m and n are called its dimensions. For example, the matrix A above is a 3 × 2 matrix.</p>
-        <p>Matrices with a single row are called row vectors, and those with a single column are called column vectors. A matrix with the same number of rows and columns is called a square matrix. A matrix with an infinite number of rows or columns (or both) is called an infinite matrix. In some contexts, such as computer algebra programs, it is useful to consider a matrix with no rows or no columns, called an empty matrix.</p>
+        <p>
+            The size of a matrix is defined by the number of rows and columns it contains. There is no limit to the numbers of 
+            rows and columns a matrix (in the usual sense) can have as long as they are positive integers. A matrix with m rows 
+            and n columns is called an m * n matrix, or m-by-n matrix, while m and n are called its dimensions. For example, 
+            the matrix A above is a 3 * 2 matrix.
+        </p>
+        <p>
+            Matrices with a single row are called row vectors, and those with a single column are called column vectors. A 
+            matrix with the same number of rows and columns is called a square matrix. A matrix with an infinite number of 
+            rows or columns (or both) is called an infinite matrix. In some contexts, such as computer algebra programs, it 
+            is useful to consider a matrix with no rows or no columns, called an empty matrix.
+        </p>
         <button><a href="">up to menu</a></button>
     </div>
     <div>
         <h1 id="addsub">Addition/Subtraction</h1>
         <p>
-            Two matrices must have an equal number of rows and columns to be added/subtracted. In which case,the sum/difference of two matrices A and B will be a matrix which has the same number of rows and columns as A and B. The sum/difference of A and B, denoted A + B/A - B, is computed by adding/subtracting corresponding elements of A and B
+            Two matrices must have an equal number of rows and columns to be added/subtracted. In which case,the sum/difference 
+            of two matrices A and B will be a matrix which has the same number of rows and columns as A and B. The 
+            sum/difference of A and B, denoted A + B/A - B, is computed by adding/subtracting corresponding elements of A and 
+            B
         </p>
         <img src="https://www.keil.com/pack/doc/CMSIS/DSP/html/MatrixAddition.gif" alt="Picture for showing the addidtion of matrix">
         <br>
         <img src="https://th.bing.com/th/id/R.1a570b7131fa9916c93598e717bdc1aa?rik=mEZJa9qZWdP30w&riu=http%3a%2f%2fwww.keil.com%2fpack%2fdoc%2fCMSIS%2fDSP%2fhtml%2fMatrixSubtraction.gif&ehk=FaIY0QeMszcsW33Vmd%2bVtTDKhE1CKo8ui%2fIOMG3Zh30%3d&risl=&pid=ImgRaw&r=0" alt="Picture for showing the Subtraction of matrix">
-        <p>Or more concisely (assuming that A + B = C/A - B = C)</p>
-        <p>For example:</p>
+        <p>
+            Or more concisely (assuming that A + B = C/A - B = C)
+        </p>
+        <p>
+            For example:
+        </p>
         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b7da39614abf8978240dd50e3111f7dfa416daa1" alt="Example of the addidtion of matrix">
         <br>
         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c14df99026d70d1d2a4a81d63fb009c40df3ea77" alt="Example of the Subtraction of matrix">
@@ -79,49 +103,92 @@
     <div>
         <h1 id="mul">Multiplication</h1>
         <p>
-            In mathematics, particularly in linear algebra, matrix multiplication is a binary operation that produces a matrix from two matrices. For matrix multiplication, the number of columns in the first matrix must be equal to the number of rows in the second matrix. The resulting matrix, known as the matrix product, has the number of rows of the first and the number of columns of the second matrix. The product of matrices A and B is denoted as AB
+            In mathematics, particularly in linear algebra, matrix multiplication is a binary operation that produces a matrix 
+            from two matrices. For matrix multiplication, the number of columns in the first matrix must be equal to the number 
+            of rows in the second matrix. The resulting matrix, known as the matrix product, has the number of rows of the first
+             and the number of columns of the second matrix. The product of matrices A and B is denoted as AB
         </p>
         <p>
             If A is an m * n matrix and B is an n * p matrix
         </p>
         <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/9196c0c24ad20c3b18582bc78785fa405d91c7c3">
         <p>
-            the matrix product C = AB (denoted without multiplication signs or dots) is defined to be the m × p matrix
+            the matrix product C = AB (denoted without multiplication signs or dots) is defined to be the m * p matrix
         </p>
         <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/9196c0c24ad20c3b18582bc78785fa405d91c7c3">
-        <p>such that:</p>
+        <p>
+            such that:
+        </p>
         <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/ee372c649dea0a05bf1ace77c9d6faf051d9cc8d">
-        <p>for i = 1, ..., m and j = 1, ..., p.</p>
-        <p>That is, the entry c of the product is obtained by multiplying term-by-term the entries of the ith row of A and the jth column of B, and summing these n products. In other words, c is the dot product of the ith row of A and the jth column of B.</p>
-        <p>Therefore, the C can be written as:</p>
+        <p>
+            for i = 1, ..., m and j = 1, ..., p.
+        </p>
+        <p>
+            That is, the entry c of the product is obtained by multiplying term-by-term the entries of the ith row of A and the 
+            jth column of B, and summing these n products. In other words, c is the dot product of the ith row of A and the jth
+             column of B.
+        </p>
+        <p>
+            Therefore, the C can be written as:
+        </p>
         <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/17584944fc26dc38354b452ffcc64aa158cf8349">
-        <p>Thus the product AB is defined if and only if the number of columns in A equals the number of rows in B, in this case n. Many scientific calculator manuals do not mention this condition correctly.</p>
+        <p>Thus the product AB is defined if and only if the number of columns in A equals the number of rows in B, in this case
+             n. Many scientific calculator manuals do not mention this condition correctly.
+        </p>
         <button><a href="">up to menu</a></button>
     </div>
     <div>
         <h1 id="det">Determinant</h1>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
+            In mathematics, the determinant is a scalar value that is a function of the entries of a square matrix. It allows 
+            characterizing some properties of the matrix and the linear map represented by the matrix. In particular, the 
+            determinant is nonzero if and only if the matrix is invertible and the linear map represented by the matrix is 
+            an isomorphism. The determinant of a product of matrices is the product of their determinants (the preceding 
+            property is a corollary of this one). The determinant of a matrix A is denoted det(A), det A, or |A|.
+        </p>
+        <p>
+            In the 2 by 2 matrix, the determinant can be define as:
+        </p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/5b2e40d390e1d26039aabee44c7d1d86c8755232">
+        <p>
+            For example:
+        </p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/08beff23f4d78f2fe1abf73c95fbd789cb94d845">
+        <p>
+            In the 3 by 3 matrix, the determinant can be define as:
+        </p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/a891ca1b518ba39ff21a458c74f9cc74bcefb18c">
+        <p>
+            For example
+        </p>
+        <img src = "https://www.chilimath.com/wp-content/uploads/2018/12/example-1d.png">
+        <p>
+            Each determinant of a 2 * 2 matrix in this equation is called a minor of the matrix A. This procedure can be 
+            extended to give a recursive definition for the determinant of an n * n matrix, known as Laplace expansion.
+        </p>
+        <p>
+            Determinants occur throughout mathematics. For example, a matrix is often used to represent the coefficients 
+            in a system of linear equations, and determinants can be used to solve these equations (Cramer's rule), although 
+            other methods of solution are computationally much more efficient. Determinants are used for defining the 
+            characteristic polynomial of a matrix, whose roots are the eigenvalues. In geometry, the signed n-dimensional 
+            volume of a n-dimensional parallelepiped is expressed by a determinant. This is used in calculus with exterior 
+            differential forms and the Jacobian determinant, in particular for changes of variables in multiple integrals.
         </p>
         <button><a href="">up to menu</a></button>
     </div>
     <div>
         <h1 id="inv">Inverse</h1>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
+            The inverse of matrix is another matrix, which on multiplication with the given matrix gives the multiplicative 
+            identity. For a matrix A, its inverse is A<sup>-1</sup>, and A.A<sup>-1</sup> = A<sup>-1</sup>·A = I, where I is 
+            the identity matrix. The matrix whose determinant is non-zero and for which the inverse matrix can be calculated 
+            is called an invertible matrix. 
         </p>
+        <p>
+            For example:
+        </p>
+        <img src = "https://i0.wp.com/www.mathbootcamps.com/wp-content/uploads/inverse-matrices.png?resize=595%2C334">
+
         <button><a href="">up to menu</a></button>
     </div>
     <div>
