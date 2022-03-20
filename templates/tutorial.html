@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block style %} 
+
 <style>
     main{
         padding: 30px 5%;
@@ -28,6 +29,7 @@
 {% endblock %}
 
 {% block content %}
+
 <ul class="subnav">
     <li>
         <a href="#addsub">Addition/Subtraction</a>
@@ -49,40 +51,46 @@
     <div>
         <h1>Introduction</h1>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
+            A matrix is a rectangular array of numbers (or other mathematical objects), called the entries of the matrix. Matrices are subject to standard operations such as addition and multiplication. Most commonly, a matrix over a field F is a rectangular array of elements of F. A real matrix and a complex matrix are matrices whose entries are respectively real numbers or complex numbers. More general types of entries are discussed below. For instance, this is a real matrix:
         </p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/93197553f2e35e42d461b20ee549ea2fde617e1e">
+        <p>The numbers, symbols, or expressions in the matrix are called its entries or its elements. The horizontal and vertical lines of entries in a matrix are called rows and columns, respectively.</p>
+        <h2>size</h2>
+        <p>The size of a matrix is defined by the number of rows and columns it contains. There is no limit to the numbers of rows and columns a matrix (in the usual sense) can have as long as they are positive integers. A matrix with m rows and n columns is called an m × n matrix, or m-by-n matrix, while m and n are called its dimensions. For example, the matrix A above is a 3 × 2 matrix.</p>
+        <p>Matrices with a single row are called row vectors, and those with a single column are called column vectors. A matrix with the same number of rows and columns is called a square matrix. A matrix with an infinite number of rows or columns (or both) is called an infinite matrix. In some contexts, such as computer algebra programs, it is useful to consider a matrix with no rows or no columns, called an empty matrix.</p>
         <button><a href="">up to menu</a></button>
     </div>
     <div>
         <h1 id="addsub">Addition/Subtraction</h1>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
+            Two matrices must have an equal number of rows and columns to be added/subtracted. In which case,the sum/difference of two matrices A and B will be a matrix which has the same number of rows and columns as A and B. The sum/difference of A and B, denoted A + B/A - B, is computed by adding/subtracting corresponding elements of A and B
         </p>
+        <img src="https://www.keil.com/pack/doc/CMSIS/DSP/html/MatrixAddition.gif" alt="Picture for showing the addidtion of matrix">
+        <br>
+        <img src="https://th.bing.com/th/id/R.1a570b7131fa9916c93598e717bdc1aa?rik=mEZJa9qZWdP30w&riu=http%3a%2f%2fwww.keil.com%2fpack%2fdoc%2fCMSIS%2fDSP%2fhtml%2fMatrixSubtraction.gif&ehk=FaIY0QeMszcsW33Vmd%2bVtTDKhE1CKo8ui%2fIOMG3Zh30%3d&risl=&pid=ImgRaw&r=0" alt="Picture for showing the Subtraction of matrix">
+        <p>Or more concisely (assuming that A + B = C/A - B = C)</p>
+        <p>For example:</p>
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b7da39614abf8978240dd50e3111f7dfa416daa1" alt="Example of the addidtion of matrix">
+        <br>
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c14df99026d70d1d2a4a81d63fb009c40df3ea77" alt="Example of the Subtraction of matrix">
+
         <button><a href="">up to menu</a></button>
     </div>
     <div>
         <h1 id="mul">Multiplication</h1>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et impedit ea nobis fugit voluptatum iste neque, quam unde nam at, in quisquam minima debitis ipsam incidunt molestias distinctio inventore nostrum.
+            In mathematics, particularly in linear algebra, matrix multiplication is a binary operation that produces a matrix from two matrices. For matrix multiplication, the number of columns in the first matrix must be equal to the number of rows in the second matrix. The resulting matrix, known as the matrix product, has the number of rows of the first and the number of columns of the second matrix. The product of matrices A and B is denoted as AB
         </p>
+        <p>
+            If A is an m * n matrix and B is an n * p matrix
+        </p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/9196c0c24ad20c3b18582bc78785fa405d91c7c3">
+        <p>
+            the matrix product C = AB (denoted without multiplication signs or dots) is defined to be the m × p matrix
+        </p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/9196c0c24ad20c3b18582bc78785fa405d91c7c3">
+        <p>such that:</p>
+        <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/ee372c649dea0a05bf1ace77c9d6faf051d9cc8d">
         <button><a href="">up to menu</a></button>
     </div>
     <div>
