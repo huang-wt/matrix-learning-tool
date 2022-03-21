@@ -6,9 +6,168 @@
             font-style: italic;
             font-weight: bold;
         }
+
+        .aExercise{
+            background-color: azure;
+            height: 100px;
+            padding: 5px;
+            margin: 20px 10%;
+            font-size: 24px;
+            clear: both;
+
+        }
+
+        .binary div{
+            float: left;
+        }
+
+        .unary div{
+            
+            float: left;
+        }
+
+        .question{
+            width: 550px;
+        }
+        
+        input[type=text]{
+            width: 250px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        button{
+            clear: both;
+        }
+
+
     </style>
+
 {% endblock %}
 
 {% block content %}
-    <h1>test</h1>
+    <div class="exercisesBlock">
+        <form id="form" action="#" method="post">
+        {% for i in range(5): %}
+        <div class="aExercise">
+            {% if exercises[i][0]: %}
+                <div class="binary">
+                <div class="question">
+                    <div><p>#{{i+1}} &nbsp;&nbsp;</p></div>
+                    <div>
+                        <table>
+                            {% for j in range(0, 9, 3): %}
+                            <tr>
+                                <th>{{ exercises[i][2][j] }}</th>
+                                <th>{{ exercises[i][2][j + 1] }}</th>
+                                <th>{{ exercises[i][2][j + 2] }}</th>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div>
+                        <p>
+                            {% if exercises[i][1] == "add": %}
+                                &nbsp;&nbsp;&nbsp;&nbsp; &plus; &nbsp;&nbsp;&nbsp;&nbsp;
+                            {% elif exercises[i][1] == "sub": %}
+                                &nbsp;&nbsp;&nbsp;&nbsp; &minus; &nbsp;&nbsp;&nbsp;&nbsp;
+                            {% elif exercises[i][1] == "mult": %}
+                                &nbsp;&nbsp;&nbsp;&nbsp; &times; &nbsp;&nbsp;&nbsp;&nbsp;
+                            {% endif %}
+                        </p> 
+                    </div>
+                    <div>
+                        <table>
+                            {% for j in range(0, 9, 3): %}
+                            <tr>
+                                <th>{{ exercises[i][3][j] }}</th>
+                                <th>{{ exercises[i][3][j + 1] }}</th>
+                                <th>{{ exercises[i][3][j + 2] }}</th>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>    
+                <div>
+                    <p>
+                        {% if is_checked: %}
+                            <input type="text" id="{{i}}" name="{{i}}" value="{{user_answers[i]}}">
+                        {% else: %}
+                            <input type="text" id="{{i}}" name="{{i}}">
+                        {% endif %}  
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                </div>
+                {% if is_checked: %}
+                <div>
+                    {% if check[i] == True: %}
+                        <p style="background-color: rgb(140, 240, 140);">Correct</p>
+                    {% elif check[i] == False: %}
+                    <p><span style="background-color: rgb(255, 89, 89);">Wrong</span>&nbsp;&nbsp;Answer: {{exercises[i][-1]}}</p>
+                    {% endif %}
+                </div>
+                {% endif %}  
+
+                </div>
+
+            {% else: %}
+                <div class="unary">
+                <div class="question">
+                    <div><p>#{{i+1}} &nbsp;&nbsp;</p></div>
+                    <div>
+                        <p> &nbsp; Determine the {{ exercises[i][1][1:] }} of &nbsp; </p>
+                    </div>
+                    <div>
+                        <table>
+                            {% for j in range(0, 9, 3): %}
+                            <tr>
+                                <th>{{ exercises[i][2][j] }}</th>
+                                <th>{{ exercises[i][2][j + 1] }}</th>
+                                <th>{{ exercises[i][2][j + 2] }}</th>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <div class="textBox">
+                    <p>
+                        {% if is_checked: %}
+                            <input type="text" id="{{i}}" name="{{i}}" value="{{user_answers[i]}}">
+                        {% else: %}
+                            <input type="text" id="{{i}}" name="{{i}}">
+                        {% endif %}  
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                </div>
+                {% if is_checked: %}
+                <div>
+                    {% if check[i] == True: %}
+                        <p style="background-color: rgb(140, 240, 140);">Correct</p>
+                    {% elif check[i] == False: %}
+                        <p><span style="background-color: rgb(255, 89, 89);">Wrong</span>&nbsp;&nbsp;Answer: {{exercises[i][-1]}}</p>
+                        
+                    {% endif %}
+                </div>
+                {% endif %}  
+                </div>
+            {% endif %}
+        </div>
+        
+        {% endfor %}
+        </form>
+
+        <div>
+            <button type="submit" form="form" name="submit" value="submit"> Submit</button>
+            
+        </div>
+        <div>
+            <form action="#" method="post">
+                <button type="submit" name="import" value="import"> Import Exercises Set</button>
+                <button type="submit" name="new" value="new"> New Exercises Set</button>
+            </form>
+
+        </div>
+    </div>
+
+
 {% endblock %}
