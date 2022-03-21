@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
+from exercise_generator import ExercisesGenerator
 from matrix_operation import Matrix
 from data_processor import DataProcessor
 
 app = Flask(__name__)
 data_processor = DataProcessor()
+exercises_generator = ExercisesGenerator()
+exercises_generator.set_exercises(True)
 
 
 @app.route("/")
@@ -14,15 +17,32 @@ def home():
 def tutorial():
     return render_template("tutorial.html")
 
-@app.route("/exercise")
+@app.route("/exercise", methods=["POST", "GET"])
 def exercise():
-    return render_template("exercise.html")
+    exercises = exercises_generator.exercises
+    print(exercises)
+    is_checked = False
+    if request.method == "POST":
+        if "import" in request.form.to_dict():
+            exercises_generator.set_exercises(False)
+            exercises = exercises_generator.exercises
+        elif "new" in request.form.to_dict():
+            exercises_generator.set_exercises(True)
+            exercises = exercises_generator.exercises
+        
+        user_answers = data_processor.process_user_answers(request.form.to_dict())
+        print(user_answers)
+        if len(user_answers) != 0:
+            is_checked = True
+            check = exercises_generator.check_answers(user_answers)
+            return render_template("exercise.html", exercises=exercises, is_checked=is_checked, check=check, user_answers=user_answers)
+
+    return render_template("exercise.html", exercises=exercises, is_checked=is_checked)
 
 @app.route("/calculator", methods=["POST", "GET"])
 def calculator():
     if request.method == "POST":
         op = request.form['op']
-        # print(op)
         AB = request.form.to_dict()
 
         arrA, arrB = data_processor.process_AB_elems(AB)
@@ -30,7 +50,7 @@ def calculator():
         if is_binary:
             matrix_A = Matrix(arrA, op)
             matrix_B = Matrix(arrB, op)
-            res = list(matrix_A.get_bi_result(matrix_B))
+            res = matrix_A.get_bi_result(matrix_B)
             return render_template("calculator.html", is_binary=is_binary, A=arrA, op=op, B=arrB, res=res)
         else:
             is_unary = True
