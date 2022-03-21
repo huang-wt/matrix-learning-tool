@@ -23,3 +23,11 @@ class DataProcessor:
             return True
         else:  # elif op[0] == "B"
             return False
+
+    def process_user_answers(self, ua):
+        user_answers = []
+        for k, v in ua.items():
+            if k != "submit" and k != "import" and k != "new":
+                user_answers.append(v)
+
+        return user_answers
