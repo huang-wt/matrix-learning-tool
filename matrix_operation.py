@@ -41,7 +41,7 @@ class Matrix:
         return self.arrM.dot(N.arrM).tolist()
 
     def det(self):
-        return np.linalg.det(self.arrM)
+        return round(np.linalg.det(self.arrM).real, 2)
 
     def inv(self):
         try:
@@ -53,9 +53,16 @@ class Matrix:
         return np.linalg.eig(self.arrM)
     
     def eigval(self):
-        return self.eig()[0].tolist()
+        res = self.eig()[0].tolist()
+        for i in range(len(res)):
+            res[i] = round(res[i].real, 2)
+        return res
     
     def eigvect(self):
-        return self.eig()[1].tolist()
+        res = self.eig()[1].tolist()
+        for i in range(len(res)):
+            for j in range(len(res[i])):
+                res[i][j] = round(res[i][j].real, 2)
+        return res
 
 
