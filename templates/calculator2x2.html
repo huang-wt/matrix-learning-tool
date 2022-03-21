@@ -96,7 +96,7 @@
 
 {% block content %}
 <main>
-    <div style="height: 350px;">
+    <div style="height: 350px; width: 996px">
     <form action="#" method="post" id="form">
     <div id="leftbox">
         <h2>Matrix A:</h2>
@@ -110,9 +110,7 @@
                   <th>
                         <input type="number" id="A01" name="A01" required><br><br>
                   </th>
-                  <th>
-                        <input type="number" id="A02" name="A02" required><br><br>
-                  </th>
+
                 </tr>
                 <tr>
                   <th>
@@ -121,21 +119,9 @@
                   <th>
                         <input type="number" id="A11" name="A11" required><br><br>
                   </th>
-                  <th>
-                        <input type="number" id="A12" name="A12" required><br><br>
-                  </th>
+                  
                 </tr>
-                <tr>
-                  <th>
-                        <input type="number" id="A20" name="A20" required><br><br>
-                  </th>
-                  <th>
-                        <input type="number" id="A21" name="A21" required><br><br>
-                  </th>
-                  <th>
-                        <input type="number" id="A22" name="A22" required><br><br>
-                  </th>
-                </tr>
+                
               </table>
         </div>
         <!-- </form> -->
@@ -165,14 +151,12 @@
             <table>
                 <tr>
                   <th>
-                        <input type="number" id="B00" name="B00"><br><br>
+                        <input type="number" id="B00" name="B00" ><br><br>
                   </th>
                   <th>
                         <input type="number" id="B01" name="B01"><br><br>
                   </th>
-                  <th>
-                        <input type="number" id="B02" name="B02"><br><br>
-                  </th>
+                  
                 </tr>
                 <tr>
                   <th>
@@ -181,21 +165,9 @@
                   <th>
                         <input type="number" id="B11" name="B11"><br><br>
                   </th>
-                  <th>
-                        <input type="number" id="B12" name="B12"><br><br>
-                  </th>
+                  
                 </tr>
-                <tr>
-                  <th>
-                        <input type="number" id="B20" name="B20"><br><br>
-                  </th>
-                  <th>
-                        <input type="number" id="B21" name="B21"><br><br>
-                  </th>
-                  <th>
-                        <input type="number" id="B22" name="B22"><br><br>
-                  </th>
-                </tr>
+            
               </table>
         </div>
         <!-- </form> -->
@@ -217,11 +189,10 @@
             <div class="binary">
             <div>
                 <table>
-                    {% for i in range(0, 9, 3): %}
+                    {% for i in range(0, 4, 2): %}
                     <tr>
                         <th>{{ A[i] }}</th>
                         <th>{{ A[i + 1] }}</th>
-                        <th>{{ A[i + 2] }}</th>
                     </tr>
                     {% endfor %}
                 </table>
@@ -239,11 +210,10 @@
             </div>
             <div>
                 <table>
-                    {% for i in range(0, 9, 3): %}
+                    {% for i in range(0, 4, 2): %}
                     <tr>
                         <th>{{ B[i] }}</th>
                         <th>{{ B[i + 1] }}</th>
-                        <th>{{ B[i + 2] }}</th>
                     </tr>
                     {% endfor %}
                 </table>
@@ -253,9 +223,9 @@
             </div>
             <div>
                 <table>
-                    {% for i in range(3): %}
+                    {% for i in range(2): %}
                     <tr>
-                        {% for j in range(3): %}
+                        {% for j in range(2): %}
                         <th>{{ res[i][j] }}</th>
                         {% endfor %}
                     </tr>
@@ -272,21 +242,19 @@
             <div>
                 {% if is_on_A: %}
                 <table>
-                    {% for i in range(0, 9, 3): %}
+                    {% for i in range(0, 4, 2): %}
                     <tr>
                         <th>{{ A[i] }}</th>
                         <th>{{ A[i + 1] }}</th>
-                        <th>{{ A[i + 2] }}</th>
                     </tr>
                     {% endfor %}
                 </table>
                 {% elif not is_on_A: %}
                 <table>
-                    {% for i in range(0, 9, 3): %}
+                    {% for i in range(0, 4, 2): %}
                     <tr>
                         <th>{{ B[i] }}</th>
                         <th>{{ B[i + 1] }}</th>
-                        <th>{{ B[i + 2] }}</th>
                     </tr>
                     {% endfor %}
                 </table>

@@ -101,6 +101,12 @@ body {
   opacity: 1;
 }
 
+@media (max-width: 1275px) {
+  body {
+    width: 1275px;
+  }
+}
+
 @keyframes wave {
   0% {
     margin-left: 0;

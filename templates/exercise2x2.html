@@ -14,10 +14,7 @@
             margin: 20px 10%;
             font-size: 24px;
             clear: both;
-            border-radius: 5px;
-        }
-        .aExercise:hover {
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+
         }
 
         .binary div{
@@ -38,49 +35,10 @@
             height: 30px;
             font-size: 20px;
         }
-        
-        .buttons {
-            text-align: right;
-            margin-top: 40px;
-        }
 
-        button:hover {
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
-            color: white;
-            background-color: skyblue;
+        button{
+            clear: both;
         }
-        .button {
-            display: inline-block;
-        }
-
-        #submit {
-            width: 140px;
-            height: 60px;
-            border-radius: 5px;
-            border: none; 
-            margin-right: 10px;
-        }
-        #import {
-            width: 140px;
-            height: 60px;
-            border-radius: 5px;
-            border: none; 
-            margin-right: 10px;
-        }
-        #newEX {
-            width: 140px;
-            height: 60px;
-            border-radius: 5px;
-            border: none; 
-        }
-        #FalseAnswer {
-            text-align: center;
-        }
-        {% comment %} need solve  {% endcomment %}
-        .Answer {
-            margin-block-end: 5%;
-        }
-        
 
 
     </style>
@@ -98,11 +56,10 @@
                     <div><p>#{{i+1}} &nbsp;&nbsp;</p></div>
                     <div>
                         <table>
-                            {% for j in range(0, 9, 3): %}
+                            {% for j in range(0, 4, 2): %} 
                             <tr>
                                 <th>{{ exercises[i][2][j] }}</th>
                                 <th>{{ exercises[i][2][j + 1] }}</th>
-                                <th>{{ exercises[i][2][j + 2] }}</th>
                             </tr>
                             {% endfor %}
                         </table>
@@ -120,11 +77,10 @@
                     </div>
                     <div>
                         <table>
-                            {% for j in range(0, 9, 3): %}
+                            {% for j in range(0, 4, 2): %}
                             <tr>
                                 <th>{{ exercises[i][3][j] }}</th>
                                 <th>{{ exercises[i][3][j + 1] }}</th>
-                                <th>{{ exercises[i][3][j + 2] }}</th>
                             </tr>
                             {% endfor %}
                         </table>
@@ -141,7 +97,7 @@
                     </p>
                 </div>
                 {% if is_checked: %}
-                <div class="Answer">
+                <div>
                     {% if check[i] == True: %}
                         <p style="background-color: rgb(140, 240, 140);">Correct</p>
                     {% elif check[i] == False: %}
@@ -161,11 +117,10 @@
                     </div>
                     <div>
                         <table>
-                            {% for j in range(0, 9, 3): %}
+                            {% for j in range(0, 4, 2): %}
                             <tr>
                                 <th>{{ exercises[i][2][j] }}</th>
                                 <th>{{ exercises[i][2][j + 1] }}</th>
-                                <th>{{ exercises[i][2][j + 2] }}</th>
                             </tr>
                             {% endfor %}
                         </table>
@@ -182,11 +137,12 @@
                     </p>
                 </div>
                 {% if is_checked: %}
-                <div class="Answer">
+                <div>
                     {% if check[i] == True: %}
                         <p style="background-color: rgb(140, 240, 140);">Correct</p>
                     {% elif check[i] == False: %}
-                        <p><span style="background-color: rgb(255, 89, 89);">Wrong</span>&nbsp;&nbsp;Answer: {{exercises[i][-1]}}</p>   
+                        <p><span style="background-color: rgb(255, 89, 89);">Wrong</span>&nbsp;&nbsp;Answer: {{exercises[i][-1]}}</p>
+                        
                     {% endif %}
                 </div>
                 {% endif %}  
@@ -196,12 +152,17 @@
         
         {% endfor %}
         </form>
-        <div class="buttons">
-            <button id="submit" type="submit" form="form" name="submit" value="submit"> Submit</button>
-            <form class="button" action="#" method="post">
-                <button id="import" type="submit" name="import" value="import"> Import Exercises Set</button>
-                <button id="newEX" type="submit" name="new" value="new"> New Exercises Set</button>
+
+        <div>
+            <button type="submit" form="form" name="submit" value="submit"> Submit</button>
+            
+        </div>
+        <div>
+            <form action="#" method="post">
+                <button type="submit" name="import" value="import"> Import Exercises Set</button>
+                <button type="submit" name="new" value="new"> New Exercises Set</button>
             </form>
+
         </div>
     </div>
 

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block style %} 
+    <style>
+        .buttons {
+            width: 100;
+            text-align: center;
+            margin-top: 125px;
+        }
+    
+        button{
+            width: 300px;
+            height: 300px;
+            font-size: 75px;
+            border-radius: 5px;
+            border: none;
+        }
+        .button1 {
+            float: left;
+            display: inline-block;
+            width: 50%;
+        }
+        .button2 {
+            float: left;
+            display: inline-block;
+            width: 50%;
+        }
+        button:hover {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+        }
+        body {
+            overflow: hidden;
+        }
+        
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <div class="buttons">
+        <div class="button1">
+            <a href="{{url_for('exercise2x2')}}"><button id="exercise2x2">2x2</button></a>
+        </div>
+        <div class="button2">
+            <a href="{{url_for('exercise')}}"><button id="exercise">3x3</button></a>
+        </div>
+    </div>
+
+{% endblock %}

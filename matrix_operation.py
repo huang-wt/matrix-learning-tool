@@ -1,17 +1,16 @@
 import numpy as np
 
-MATRIXSIZE = 3
 
 class Matrix:
 
-    def __init__(self, M, op) -> None:
+    def __init__(self, M, op, num) -> None:
         self.op = op
-        self.arrM = np.empty(MATRIXSIZE * MATRIXSIZE, dtype=int)
+        self.arrM = np.empty(num * num, dtype=int)
         
-        for i in range(MATRIXSIZE * MATRIXSIZE):
+        for i in range(num * num):
             self.arrM[i] = M[i]
         
-        self.arrM = self.arrM.reshape(MATRIXSIZE, MATRIXSIZE)
+        self.arrM = self.arrM.reshape(num, num)
 
     def get_bi_result(self, N):
         if self.op == "add":
@@ -45,7 +44,8 @@ class Matrix:
 
     def inv(self):
         try:
-            return np.linalg.inv(self.arrM).tolist()
+            result = np.linalg.inv(self.arrM).tolist()
+            return np.round(result, 2)
         except:
             return "This matrix is a singular matrix"
     
