@@ -11,10 +11,13 @@
             background-color: azure;
             height: 100px;
             padding: 5px;
-            margin: 20px 10%;
+            margin: 40px 10%;
             font-size: 24px;
             clear: both;
-
+            border-radius: 5px;
+        }
+        .aExercise:hover {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
         }
 
         .binary div{
@@ -36,8 +39,44 @@
             font-size: 20px;
         }
 
-        button{
-            clear: both;
+        .buttons {
+            text-align: right;
+            margin-top: 40px;
+            height: 70px;
+            float: right;
+        }
+
+        button:hover {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+            color: white;
+            background-color: skyblue;
+        }
+
+        #submit {
+            width: 140px;
+            height: 60px;
+            border-radius: 5px;
+            border: none; 
+            margin-right: 10px;
+        }
+        #import {
+            width: 140px;
+            height: 60px;
+            border-radius: 5px;
+            border: none; 
+            margin-right: 10px;
+        }
+        #newEX {
+            width: 140px;
+            height: 60px;
+            border-radius: 5px;
+            border: none; 
+        }
+        #FalseAnswer {
+            text-align: center;
+        }
+        .Answer {
+            width: 1118px;
         }
 
 
@@ -97,7 +136,7 @@
                     </p>
                 </div>
                 {% if is_checked: %}
-                <div>
+                <div class="Answer">
                     {% if check[i] == True: %}
                         <p style="background-color: rgb(140, 240, 140);">Correct</p>
                     {% elif check[i] == False: %}
@@ -137,7 +176,7 @@
                     </p>
                 </div>
                 {% if is_checked: %}
-                <div>
+                <div class="Answer">
                     {% if check[i] == True: %}
                         <p style="background-color: rgb(140, 240, 140);">Correct</p>
                     {% elif check[i] == False: %}
@@ -152,17 +191,12 @@
         
         {% endfor %}
         </form>
-
-        <div>
-            <button type="submit" form="form" name="submit" value="submit"> Submit</button>
-            
-        </div>
-        <div>
+        <div class="buttons">
             <form action="#" method="post">
-                <button type="submit" name="import" value="import"> Import Exercises Set</button>
-                <button type="submit" name="new" value="new"> New Exercises Set</button>
+                <button id="submit" type="submit" form="form" name="submit" value="submit"> Submit</button>
+                <button id="import" type="submit" name="import" value="import"> Import Exercises Set</button>
+                <button id="newEX" type="submit" name="new" value="new"> New Exercises Set</button>
             </form>
-
         </div>
     </div>
 

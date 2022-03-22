@@ -6,8 +6,8 @@ from data_processor import DataProcessor
 app = Flask(__name__)
 data_processor = DataProcessor()
 exercises_generator = ExercisesGenerator()
-exercises_generator.set_exercises(True)
-
+# exercises_generator.set_exercises(True, 3)
+MARKER = False
 
 @app.route("/")
 def home():
@@ -23,19 +23,25 @@ def choose():
     
 @app.route("/chooseEX")
 def chooseEX():
-        return render_template("chooseEX.html")
+    global MARKER
+    MARKER = True
+    return render_template("chooseEX.html")
 
 @app.route("/exercise", methods=["POST", "GET"])
 def exercise():
+    global MARKER
+    if MARKER:
+        exercises_generator.set_exercises(True, 3)
+        MARKER = False
     exercises = exercises_generator.exercises
     print(exercises)
     is_checked = False
     if request.method == "POST":
         if "import" in request.form.to_dict():
-            exercises_generator.set_exercises(False)
+            exercises_generator.set_exercises(False, 3)
             exercises = exercises_generator.exercises
         elif "new" in request.form.to_dict():
-            exercises_generator.set_exercises(True)
+            exercises_generator.set_exercises(True, 3)
             exercises = exercises_generator.exercises
         
         user_answers = data_processor.process_user_answers(request.form.to_dict())
@@ -49,15 +55,19 @@ def exercise():
 
 @app.route("/exercise2x2", methods=["POST", "GET"])
 def exercise2x2():
+    global MARKER
+    if MARKER:
+        exercises_generator.set_exercises(True, 2)
+        MARKER = False
     exercises = exercises_generator.exercises
     print(exercises)
     is_checked = False
     if request.method == "POST":
         if "import" in request.form.to_dict():
-            exercises_generator.set_exercises(False)
+            exercises_generator.set_exercises(False, 2) ##
             exercises = exercises_generator.exercises
         elif "new" in request.form.to_dict():
-            exercises_generator.set_exercises(True)
+            exercises_generator.set_exercises(True, 2) ##
             exercises = exercises_generator.exercises
         
         user_answers = data_processor.process_user_answers(request.form.to_dict())

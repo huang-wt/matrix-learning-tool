@@ -40,7 +40,7 @@ class Matrix:
         return self.arrM.dot(N.arrM).tolist()
 
     def det(self):
-        return round(np.linalg.det(self.arrM).real, 2)
+        return int(round(np.linalg.det(self.arrM).real, 1))
 
     def inv(self):
         try:
